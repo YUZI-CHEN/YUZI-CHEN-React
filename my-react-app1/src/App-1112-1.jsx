@@ -10,6 +10,7 @@
 // }
 
 // 子組件使用物件結構賦值寫法
+// 結構賦值的名稱必須一樣，順序可以不同
 function MyComponent({a,b,c}){
   
    return <>
