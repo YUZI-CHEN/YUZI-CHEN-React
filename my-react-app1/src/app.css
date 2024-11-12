@@ -1,6 +1,105 @@
-h1{
-    font-size: 100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.underLine{
-    border-bottom: 10px  double black ;
+
+h1 {
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
+}
+header img {
+  width: 100%;
+}
+.textBlock {
+  height: 300px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.textBlock div {
+  width: 450px;
+  padding: 0 50px;
+}
+.textBlock h2 {
+  padding: 10px 0;
+  font-size: 30px;
+  color: red;
+}
+.item {
+  display: flex;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.item h1 {
+  color: white;
+  text-align: center;
+}
+
+.class {
+  justify-content: center;
+  align-items: center;
+}
+
+.class h2 {
+  font-size: 30px;
+  text-align: center;
+ padding: 50px 0;
+  color: green;
+}
+
+.classBox {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 50px auto;
+}
+.class .classBox .content h2 {
+  color: black;
+  font-size: 20px;
+  padding: 10px 0;
+
+}
+.class .classBox .content {
+  /* border: 1px solid red; */
+  width: 350px;
+  /* 陰影: 水平 垂直 擴展度 色彩 */
+  box-shadow: 0 0 20px #ccc;
+  padding: 10px;
+}
+.class .classBox .content .p1{
+    color:blue;
+}
+
+.class .classBox .content img {
+  width: 100%;
+}
+.class .classBox .content .span1{
+    color: black;
+    text-decoration: line-through;
+}
+.class .classBox .content .span2{
+    color: red;
+    
+}
+.class .classBox .content button{
+    background-color: red;
+    color: white;
+    border: none;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 5px;
+   margin: 10px 0;
+}
+footer{
+    background-color: black;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
 }
