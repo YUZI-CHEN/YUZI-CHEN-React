@@ -4,36 +4,36 @@
 // 此方法在不影響組件功能的基礎上，另外再給組件加入額外的功能
 //建立一個新的組件
 function SecondComponent() {
-  return <h2>我是 SecondComponent</h2>;
-}
-
-//子組件
-function MyComponent({ children }) {
-  // return<>
-  // {children}
-  // </>
-
-  // 兩個組件共同出現
-  return (
-    <>
-      <h1>我是MyComponent</h1>
-      {children}
-    </>
-  );
-}
-// 父組件
-function App() {
-  return (
-    <>
-      {/* 組件裡面呼叫組件 */}
-      {/* <MyComponent children={<SecondComponent/>}/> =>原本的寫法，因為children是內建屬性所以可以不用這樣寫*/}
-
-      {/* app父=>MyComponent子, MyComponent變成父=>SecondComponent子//(父傳子)*/}
-      <MyComponent>
-        <SecondComponent />
-      </MyComponent>
-    </>
-  );
-}
-
-export default App;
+    return <h2>我是 SecondComponent</h2>;
+  }
+  
+  //子組件
+  function MyComponent({ children }) {
+    // return<>
+    // {children}
+    // </>
+  
+    // 兩個組件共同出現
+    return (
+      <>
+        <h1>我是MyComponent</h1>
+        {children}
+      </>
+    );
+  }
+  // 父組件
+  function App() {
+    return (
+      <>
+        {/* 組件裡面呼叫組件 */}
+        {/* <MyComponent children={<SecondComponent/>}/> =>原本的寫法，因為children是內建屬性所以可以不用這樣寫*/}
+  
+        {/* app父=>MyComponent子, MyComponent變成父使用(children屬性)=>SecondComponent子//(父傳子)*/}
+        <MyComponent>
+          <SecondComponent />
+        </MyComponent>
+      </>
+    );
+  }
+  
+  export default App;
