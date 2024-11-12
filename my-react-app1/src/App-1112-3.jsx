@@ -1,3 +1,4 @@
+// 先有物件才能做物件解構
 function App() {
   // 建立物件變數
   const person = {
