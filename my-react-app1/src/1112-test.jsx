@@ -1,40 +1,71 @@
 import "./app.css";
-
+function ShowContent({arrData}){
+  return(<>
+  {
+    arrData.map((item) => {
+    return (
+      <>
+        <div key={item.id}>
+          <h2>{item.name}</h2>
+          <p>{item.contents}</p>
+        </div>
+      </>
+    );
+  })}
+  
+  </>)
+  
+}
 function App() {
-  const textBox = {
-    s1: {
+  // 用陣列去弄成資料，裡面不需要名稱
+  // 文字區資料
+  const textBox = [
+    {
+      id: 1,
       name: "教學影音",
       contents:
         " 誘導影片課程，來了解軟體的核心概念以及入門，並跟著範例練習以了解其中之應用方式",
     },
-    s2: {
+    {
+      id: 2,
       name: "良性互動",
       contents:
         "學習過程中，若您得到任何問題或是您有任何想法都歡迎提出，我們會盡量的協助問題的解決",
     },
-    s3: {
+    {
+      id: 3,
       name: "趨勢分享",
       contents: "分享目前時下所流行之趨勢，讓各位可隨時掌握新趨勢的發展",
     },
-  }
-const cardBox={
-c1:{
-item1:"Unity 5",
-item2:"GameSalad 2D遊戲製作",
-item3:"Google Web Designer",
+  ];
 
-},
-c2:{
-  img:"./images/unity.jpg",
-img2:"./images/gamesalad.jpg",
-},
-c3:{
-
-}
-}
-
-  const{name,contents}=textBox;
-  
+  const cardBox = [
+    {id:1,
+      item: "Unity 5",
+      img: "./images/unity.jpg",
+      teacher:"講師:xxx",
+      hour:"影音課程時數:4小時",
+      oldM:"原價NT$3200",
+      newM:"NT$1600",
+     
+    },
+   { id:2,
+    item: "GameSalad 2D遊戲製作",
+       img: "./images/gamesalad.jpg",
+       teacher:"講師:xxx",
+       hour:"影音課程時數:8小時",
+       oldM:"原價NT$3200",
+      newM:"NT$1600",
+    },
+     {id:3,
+      item: "Google Web Designer",
+      img:"./images/gwd.jpg",
+      teacher:"講師:xxx",
+      hour:"影音課程時數:8小時",
+      oldM:"原價NT$3200",
+      newM:"NT$1600",
+     },
+  ];
 
   return (
     <>
@@ -48,22 +79,19 @@ c3:{
         {/*文字區 */}
 
         <div className="textBlock">
-          <div>
-            <h2>{textBox.s1.name}</h2>
-            <p>
-              {textBox.s1.contents}
-            </p>
-          </div>
-          <div>
-            <h2>{textBox.s2.name}</h2>
-            <p>
-              {textBox.s2.contents}
-            </p>
-          </div>
-          <div>
-            <h2>{textBox.s3.name}</h2>
-            <p>{textBox.s3.contents}</p>
-          </div>
+          <ShowContent arrData={textBox}/>
+          {/* 方法一 */}
+          {/* {textBox.map((item) => {
+            return (
+              <>
+                <div key={item.id}>
+                  <h2>{item.name}</h2>
+                  <p>{item.contents}</p>
+                </div>
+              </>
+            );
+          })} */}
+          
         </div>
 
         {/* 主標 */}
