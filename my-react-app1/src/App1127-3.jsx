@@ -15,10 +15,10 @@ function App() {
   const [check, setCheck] = useState(false);
 
 
-  
+
   // 複選:多個核取方塊 
   const [chkList, setChkList] = useState([]);
-  const  arrList = ['html','js','css']
+  const arrList = ['html', 'js', 'css']
   // 建立函式處理被勾選的項目
   const handleChkList = (e) => {
     // console.log(e.target.value)
@@ -39,6 +39,9 @@ function App() {
 
     }
   }
+
+  const [isCar, setIsCar] = useState('N');
+
   return (
     <>
       <h1>react-表單</h1>
@@ -105,7 +108,7 @@ function App() {
           return <div key={list} >
             <input type="checkbox" id={list} className="like"
               value={list}
-               onChange={handleChkList} />
+              onChange={handleChkList} />
             <label htmlFor={list}>{list}</label>
           </div>
         })
@@ -121,10 +124,24 @@ function App() {
       <label htmlFor="chkList3">JS</label> */}
       {chkList}
 
+      <br />
+      {/* 選項按鈕 */}
+      汽車駕照
+      <span id='car'>{isCar}</span>
 
+      {/* 同一個題目同一個選項name都要一樣 */}
+      {/* 點選文字有點選的效果的話要用label的方法id跟htmlFor要一樣 */}
+
+      <input type="radio" name='car' value='有' id='yes'
+        onChange={(e) => { setIsCar('Y')}} />
+      <label htmlFor="'yes'">有</label>
+      <input type="radio" name='car' value='無' id="no"
+        onChange={(e) => { setIsCar('N') }} />
+      <label htmlFor="no">無</label>
 
     </>
   )
 }
 
 export default App;
+
