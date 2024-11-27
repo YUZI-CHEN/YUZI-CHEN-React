@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
@@ -39,8 +39,30 @@ function App() {
 
     }
   }
+  /* 選項按鈕 */
+  const [Q1Ans, setQ1Ans] = useState('');
+  const [Q2Ans, setQ2Ans] = useState('');
 
-  const [isCar, setIsCar] = useState('N');
+  // 統計次數
+  const [ansCount, setAnsCount] = useState(0);
+  const [ansCount2, setAnsCount2] = useState(0);
+  // useEffect(() => {
+  //   const btn1 = document.getElementById('btn1');
+  //   btn1.addEventListener('click', totCount);
+
+  //   function totCount() {
+  //     // 送出的時後將所有次數歸零
+
+  //     setAnsCount(0);
+  //     setAnsCount2(0);
+  //     console.log(`Q1Ans=${Q1Ans}`);
+  //     console.log(`Q2Ans=${Q2Ans}`);
+  //     // 第一題統計次數
+  //     if (Q1Ans == '美式咖啡') {
+
+  //     }
+  //   }
+  // }, [Q1Ans, Q2Ans])
 
   return (
     <>
@@ -126,19 +148,82 @@ function App() {
 
       <br />
       {/* 選項按鈕 */}
-      汽車駕照
-      <span id='car'>{isCar}</span>
+
 
       {/* 同一個題目同一個選項name都要一樣 */}
       {/* 點選文字有點選的效果的話要用label的方法id跟htmlFor要一樣 */}
 
-      <input type="radio" name='car' value='有' id='yes'
-        onChange={(e) => { setIsCar('Y')}} />
-      <label htmlFor="'yes'">有</label>
-      <input type="radio" name='car' value='無' id="no"
-        onChange={(e) => { setIsCar('N') }} />
-      <label htmlFor="no">無</label>
+      1.請選擇最愛的飲料:
+      <input type="radio" name='q1' value='美式咖啡' id='q1-1'
+        onChange={(e) => { setQ1Ans(e.target.value) }}
+      />
+      <label htmlFor="q1-1">美式咖啡</label>
 
+      <input type="radio" name='q1' value='拿鐵' id="q1-2"
+        onChange={(e) => { setQ1Ans(e.target.value) }} />
+      <label htmlFor="q1-2">拿鐵</label>
+      <br />
+      選擇:{Q1Ans}
+
+      <br />
+      2.請選擇討厭的食物:
+      <input type="radio" name='q2' value='苦瓜' id='q2-1'
+        onChange={(e) => { setQ2Ans(e.target.value) }} />
+      <label htmlFor="q2-1">苦瓜</label>
+
+      <input type="radio" name='q2' value='蘿蔔糕' id="q2-2"
+        onChange={(e) => { setQ2Ans(e.target.value) }} />
+      <label htmlFor="q2-2">蘿蔔糕</label>
+      <br />
+      選擇:{Q2Ans}
+      <br />
+      <button onClick={() => {
+        // 送出的時後將所有次數歸零
+
+        setAnsCount(0);
+        setAnsCount2(0);
+        // console.log(`Q1Ans=${Q1Ans}`);
+        // console.log(`Q2Ans=${Q2Ans}`);
+
+
+
+
+        // 再來統計次數
+        // 第一題
+        if(Q1Ans=='美式咖啡'||Q2Ans=='苦瓜'){
+        setAnsCount(ansCount+1);
+       
+        }else if(Q1Ans=='拿鐵'||Q2Ans=='蘿蔔糕'){
+          setAnsCount2(ansCount2+1);
+        }
+        // 第二題
+
+
+
+        // const q1_1 = document.getElementById('q1-1');
+        // if (q1_1.checked) {
+        //   setAnsCount(ansCount + 1);
+        // }
+        // const q1_2 = document.getElementById('q1-2');
+        // if (q1_2.checked) {
+        //   setAnsCount(ansCount + 1);
+        // }
+        // // 第二題
+        // const q2_1 = document.getElementById('q2-1');
+        // if (q2_1.checked) {
+        //   setAnsCount2(ansCount2 + 1);
+        // }
+        // const q2_2 = document.getElementById('q2-2');
+        // if (q2_2.checked) {
+        //   setAnsCount2(ansCount2 + 1);
+        // }
+      }}>送出統計結果</button>
+
+      {/* 顯示統計結果 */}
+      統計次數:
+
+      <p>選項1:{ansCount}</p>
+      <p>選項2:{ansCount2}</p>
     </>
   )
 }
