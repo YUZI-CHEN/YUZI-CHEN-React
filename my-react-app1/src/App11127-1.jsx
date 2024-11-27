@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+//要用監聽事件去互動網頁的東西就要用useEffect
+// 只用綁定事件與呼叫函式不需要使用到useEffect
 function App() {
   const [count, setCount] = useState(0);
   // 只執行一次(開啟檔案時)
@@ -16,21 +17,27 @@ function App() {
       // 再變色
       p1b.style.color = 'blue';
     })
-  
+
   });
   // 每一次渲染後執行
   // useEffect(()=>{},[]);
   useEffect(() => {
     console.log(2);
     //更改count值為1
-    setCount(count+1);
+    setCount(count + 1);
   }, []);
   // 當陣列中的依賴條件改變時，就會執行
   // useEffect(()=>{},[count]);
   useEffect(() => {
     console.log(3);
-      
+
   }, [count]);
+
+
+  function changeColor() {
+    let p1c = document.getElementById('p1');
+    p1c.style.color = 'green';
+  }
   return (
     <>
       {console.log(0)}
@@ -47,6 +54,8 @@ function App() {
       }}> 變色</button>
       {/* 監聽事件 */}
       <button id='btn2'>變藍色</button>
+      {/* 呼叫函式不需要加() */}
+      <button id='btn3' onClick={changeColor}>變綠色</button>
 
     </>
   );
