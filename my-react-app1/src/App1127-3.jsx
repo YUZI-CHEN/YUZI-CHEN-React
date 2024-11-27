@@ -9,14 +9,16 @@ function App() {
   const [selCity, setSelCity] = useState('');
   //建立陣列
   const listCity = ['台北市', '新北市', '桃園市', '台中市', '台南市', '高雄市',]
-  const  arrList = ['html','js','css']
+
 
   // 閱讀確認
   const [check, setCheck] = useState(false);
 
+
+  
   // 複選:多個核取方塊 
   const [chkList, setChkList] = useState([]);
-
+  const  arrList = ['html','js','css']
   // 建立函式處理被勾選的項目
   const handleChkList = (e) => {
     // console.log(e.target.value)
@@ -93,7 +95,7 @@ function App() {
         value={check}
         onClick={(e) => {
           //處理勾選值得變化
-          setCheck(e.target.check);
+          setCheck(e.target.checked);
 
         }} />{check.toString()}
       <br />
@@ -102,7 +104,8 @@ function App() {
         arrList.map((list) => {
           return <div key={list} >
             <input type="checkbox" id={list} className="like"
-              value={list} onChange={handleChkList} />
+              value={list}
+               onChange={handleChkList} />
             <label htmlFor={list}>{list}</label>
           </div>
         })
