@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 function App() {
+
   // 建立變色函式
   // 情境相同的情況下useEffect只要寫一次就夠了
   useEffect(() => {
@@ -13,8 +14,8 @@ function App() {
       p1.style.color = '';
       p1.style.fontWeight = '';
     })
-
-    const p2=document.getElementById('p2');
+    // querySelector各種資料類別都可以抓取
+    const p2 = document.getElementById('p2');
     p2.addEventListener('mouseover', () => {
       const p2 = document.querySelector('#p2');
       p2.textContent = '內容被改變';
@@ -24,11 +25,30 @@ function App() {
       p2.textContent = '內容';
     })
 
+    // 任何一個事件只要有事件觸發都會有一個e(e=event回傳物件)
+    // e元素必須搭配target
+    const h1 = document.getElementById('h1');
+    h1.addEventListener('click', (e) => {
+
+      console.log(e.target.textContent);
+      e.target.textContent = 'click事件被觸發';
+      e.target.style.color = 'blue';
+
+    })
+
+
+    // h1.addEventListener('click', () => {
+    //   const h1Text = h1.textContent;
+    //   console.log(h1Text);
+    //   alert(h1Text);
+    // })
   }, []);
+
+
 
   return (
     <>
-      <h1>滑鼠事件</h1>
+      <h1 id='h1'>滑鼠事件</h1>
       <hr />
       <p id="p1"
       // 進入滑鼠事件
@@ -56,7 +76,7 @@ function App() {
           const p2 = document.querySelector('#p2');
           p2.textContent = '內容';
         }}>變色內容</p> */}
-        <p id="p2">變色內容</p>
+      <p id="p2">變色內容</p>
 
     </>
   );
