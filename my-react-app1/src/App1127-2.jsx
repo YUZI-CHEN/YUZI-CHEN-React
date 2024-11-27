@@ -14,7 +14,7 @@ function App() {
       p1.style.color = '';
       p1.style.fontWeight = '';
     })
-    // querySelector各種資料類別都可以抓取
+
     const p2 = document.getElementById('p2');
     p2.addEventListener('mouseover', () => {
       const p2 = document.querySelector('#p2');
@@ -25,25 +25,33 @@ function App() {
       p2.textContent = '內容';
     })
 
-    // 任何一個事件只要有事件觸發都會有一個e(e=event回傳物件)
-    // e元素必須搭配target
+// 任何一個事件只要有事件觸發都會有一個e(e=event回傳物件)
+// e元素必須搭配target
     const h1 = document.getElementById('h1');
+    let isClick=false;
     h1.addEventListener('click', (e) => {
-
-      console.log(e.target.textContent);
-      e.target.textContent = 'click事件被觸發';
-      e.target.style.color = 'blue';
-
+      if(isClick==false){
+        console.log(e.target.textContent);
+        e.target.textContent='click事件被觸發';
+        e.target.style.color='blue';
+        isClick=true;
+       
+      }else{
+        e.target.textContent='滑鼠事件';
+        e.target.style.color='';
+        isClick=false;
+      }
+     
     })
 
 
     // h1.addEventListener('click', () => {
-    //   const h1Text = h1.textContent;
-    //   console.log(h1Text);
-    //   alert(h1Text);
-    // })
+  //   const h1Text = h1.textContent;
+  //   console.log(h1Text);
+  //   alert(h1Text);
+  // })
   }, []);
-
+  
 
 
   return (
