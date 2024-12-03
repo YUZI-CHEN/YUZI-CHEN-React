@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import { useEffect } from "react";
 import axios from 'axios';
-=======
-// import { useEffect } from "react";
-// import axios from 'axios';
->>>>>>> f7a5e2b299f080f3b7658316aea42c088798ad26
 import "./app.css";
 import { FaUmbrella } from "react-icons/fa6";
 function App() {
 
-<<<<<<< HEAD
   useEffect(() => {
 
     (async () => {
@@ -22,23 +16,6 @@ function App() {
       // console.log(location);
     })()
   }, [])
-=======
-  // useEffect(() => {
-
-  //   (async () => {
-  //     // json檔案要放在雲端上
-  //     const data = await axios.get('https://github.com/YUZI-CHEN/https---github.com-YUZI-CHEN-React/blob/master/my-react-app1/F-C0032-001.json');
-  //     //第一個data是上一行的data
-
-  //     const { location } = data.data.cwaopendata.dataset;
-  //     console.log(location);
-  //   })
-  // }, [])
->>>>>>> f7a5e2b299f080f3b7658316aea42c088798ad26
-
-
-
-
 
   return (
     <>
