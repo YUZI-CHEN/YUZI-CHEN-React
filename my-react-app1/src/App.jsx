@@ -19,6 +19,7 @@ function App() {
 
       const { location } = data.data.cwaopendata.dataset;
       setWeatherList(location);
+      console.log(location);
 
 
       //locationName=>縣市名稱
@@ -43,39 +44,65 @@ function App() {
 
                 <h3>{city.locationName}</h3>
                 <div className="content">
-                  <div className="item2">
-                    <p>4日</p>
-                    <p>上午6:00 <br />
-                      ~<br />
-                      下午6:00
-                    </p>
-                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
-                    <p>{ <FaUmbrella/>} 30% </p>
+                  {
 
-                    
-                  </div>
-                  <div className="item2">
-                    <p>4日</p>
-                    <p>上午6:00 <br />
-                      ~<br />
-                      下午6:00
-                    </p>
-                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
-                    <p>{ <FaUmbrella/>} 30% </p>
+                    city.weatherElement[0].time.map((time, index) => {
+                      return (
+                        <div className="item2" key={index}>
+                          {/* <p>4日</p> */}
+                          <p>
+                            {
+                              /* 擷取日期 */
+                              new Date(time. startTime).toLocaleString(undefined,
+                                { day: 'numeric' }
+                              )
 
-                    
-                  </div>
-                  <div className="item2">
-                    <p>4日</p>
-                    <p>上午6:00 <br />
-                      ~<br />
-                      下午6:00
-                    </p>
-                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
-                    <p>{ <FaUmbrella/>} 30% </p>
+                            }
+                          </p>
+                          <p>
+                            {/* 時間 */}
+                            {
+                              new Date(time. endTime).toLocaleString(undefined, {
+                                hour: 'numeric',
+                                minute: 'numeric'
+                              })
+                            }
+                            <br />~<br />
+                          </p>
+                          {/* 天氣 */}
+                          {/* <img src="../public/weatherIcon/晴時多雲.svg" alt="" /> */}
+                          <p><img src={`./weatherIcon/${time.parameter.parameterName}.svg`} alt="" /></p>
+                          <p>{time.parameter.parameterName}</p>
 
-                    
-                  </div>
+                          {/* 降雨機率 */}
+
+                          {/* <p>{<FaUmbrella />} 30% </p> */}
+                          <p><FaUmbrella />
+                          {
+                            city.weatherElement[4].time[index].parameter.parameterName
+                          }
+
+                           </p>
+                           <p>
+                           {
+                            city.weatherElement[4].time[index].parameter.parameterUnit
+                          }
+                           </p>
+
+                        </div>
+
+                      )
+
+                    })
+
+
+
+
+
+
+                  }
+
+
 
                 </div>
 
