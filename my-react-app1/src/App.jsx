@@ -62,12 +62,18 @@ function App() {
                           <p>
                             {/* 時間 */}
                             {
-                              new Date(time. endTime).toLocaleString(undefined, {
+                              new Date(time. startTime).toLocaleString(undefined, {
                                 hour: 'numeric',
                                 minute: 'numeric'
                               })
                             }
                             <br />~<br />
+                            {
+                              new Date(time. endTime).toLocaleString(undefined, {
+                                hour: 'numeric',
+                                minute: 'numeric'
+                              })
+                            }
                           </p>
                           {/* 天氣 */}
                           {/* <img src="../public/weatherIcon/晴時多雲.svg" alt="" /> */}
