@@ -13,12 +13,12 @@ function App() {
 
     (async () => {
       // json檔案要放在雲端上
-      const data = await axios.get('https://yuzi-chen.github.io/YUZI-CHEN-React/json/F-C0032-001.json/');
+      const data = await axios.get('https://yuzi-chen.github.io/YUZI-CHEN-React/json/F-C0032-001.json');
       // console.log(data);
       //第一個data是上一行的data
 
       const { location } = data.data.cwaopendata.dataset;
-      console.log(location);
+      setWeatherList(location);
 
 
       //locationName=>縣市名稱
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div >
+      <div className="wrap">
         <h2>36小時天氣預報</h2>
         {/* 一列二欄 */}
         <div className="container">
@@ -42,6 +42,42 @@ function App() {
               return <div className="item" key={city.locationName}>
 
                 <h3>{city.locationName}</h3>
+                <div className="content">
+                  <div className="item2">
+                    <p>4日</p>
+                    <p>上午6:00 <br />
+                      ~<br />
+                      下午6:00
+                    </p>
+                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
+                    <p>{ <FaUmbrella/>} 30% </p>
+
+                    
+                  </div>
+                  <div className="item2">
+                    <p>4日</p>
+                    <p>上午6:00 <br />
+                      ~<br />
+                      下午6:00
+                    </p>
+                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
+                    <p>{ <FaUmbrella/>} 30% </p>
+
+                    
+                  </div>
+                  <div className="item2">
+                    <p>4日</p>
+                    <p>上午6:00 <br />
+                      ~<br />
+                      下午6:00
+                    </p>
+                    <p><img src="../public/weatherIcon/晴時多雲.svg" alt="" /></p>
+                    <p>{ <FaUmbrella/>} 30% </p>
+
+                    
+                  </div>
+
+                </div>
 
 
               </div>
