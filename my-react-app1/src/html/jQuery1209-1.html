@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入jQuery程式 -->
+    <script src="./jquery-3.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <h1>非前端框架下的jQuery使用(一般)</h1>
+    <hr>
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad a exercitationem ipsa harum ullam? Reiciendis,
+        pariatur quia, velit quam dicta porro mollitia adipisci, ullam odit commodi a dignissimos provident animi!
+        Nihil ab architecto ullam neque, fugiat quas sed? Doloribus modi maiores itaque praesentium similique magni ut
+        consequuntur nemo iusto, temporibus voluptas iste perspiciatis atque aliquid obcaecati omnis sapiente quae
+        eligendi!</p>
+      <p>click1</p>
+      <p>click2</p>
+    </div>
+    <hr>
+    <p class="2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad a exercitationem ipsa harum ullam?
+      Reiciendis, pariatur quia, velit quam dicta porro mollitia adipisci, ullam odit commodi a dignissimos provident
+      animi!
+      Nihil ab architecto ullam neque, fugiat quas sed? Doloribus modi maiores itaque praesentium similique magni ut
+      consequuntur nemo iusto, temporibus voluptas iste perspiciatis atque aliquid obcaecati omnis sapiente quae
+      eligendi!</p>
+    <button id="hide">隱藏</button>
+    <button id="show">顯示</button>
+    <button id="toggle">雙向</button>
+
+    <hr>
+    <button id="box1"> 按一下展開</button>
+    <button id="box2"> 按一下摺疊</button>
+    <button id="box3"> 按一下雙向</button>
+    <div id="pane1" style="display: none;background-color: aqua;height: 200px;">
+      我是展開的面板
+    </div>
+
+
+    <hr>
+    <div class="box1">
+      <h2>news 1</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div class="box2">
+      <h2>news 2</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div class="box3">
+      <h2>news 3</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+
+    <div class="box4">
+      <button id="btn4">new4</button>
+      <div id="pane2" style="display: none;background-color: aqua;height: 200px;">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      </div>
+    </div>
+    <style>
+      .box4 button {
+        border: none;
+        padding: 5px 20px;
+        width: 100%;
+        background-color: black;
+        color: azure;
+        /* 滑鼠形狀 */
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      //標準法
+      $(document).ready(function () {
+        //程式撰寫區
+        $('p').click(function () {
+          //hide()=>不顯示
+          // f=this可以被點選才隱藏
+          $(this).hide();
+        })
+
+      });
+      //簡易法
+      $(function () {
+        //程式撰寫區
+        $('h1').click(function () {
+          $(this).hide();
+        })
+
+      });
+
+
+      $(function () {
+        $("#hide").click(function () {
+          $(".2").hide(1000);
+
+        });
+
+      });
+      $(function () {
+        $("#show").click(function () {
+          $(".2").show(1000);
+
+        })
+
+      });
+      //toggle雙向(顯示+隱藏)
+      $('#toggle').click(function () {
+        $('.2').toggle(300);
+      })
+
+      //展開+折疊
+      $(function () {
+        $("#box1").click(function () {
+          $('#pane1').slideDown(500);
+        })
+      });
+      $(function () {
+        $("#box2").click(function () {
+          $('#pane1').slideUp(500);
+        })
+      })
+      $(function () {
+        $("#box3").click(function () {
+          $('#pane1').slideToggle(500);
+        })
+      })
+
+
+      $(function () {
+        $('.box1').click(function () {
+          $('.box1 p').slideToggle(500);
+        })
+      })
+      $(function () {
+        $('.box2').click(function () {
+          $('.box2 p').slideToggle(500);
+        })
+      })
+      $(function () {
+        $('.box3').click(function () {
+          $('.box3 p').slideToggle(500);
+        })
+      })
+
+
+      $(function () {
+        $('#btn4').click(function () {
+          $('#pane2').slideToggle(500);
+        })
+      })
+    </script>
+
+    <br>
+    <!-- animate -->
+    <button id="up">上</button>
+
+    <button id="left">左</button>
+    <button id="zoom">放大</button>
+    <button id="b-toggle">放大縮小</button>
+    <button id="color">變色</button>
+
+
+    <div class="box-2">
+      <p>123</p>
+    </div>
+    <style>
+      /* 控制方塊不要跑出去 */
+      .box-2 {
+        border: 1px solid red;
+        position: relative;
+      }
+
+      .box-2 p {
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+        margin: 150px;
+        /* 改變位置需要加入position: absolute (絕對定位)*/
+        position: absolute;
+
+      }
+    </style>
+    <script>
+      $(function () {
+        $('#up').click(function () {
+          $('.box-2').animate({ top: '-100px' },)
+        });
+        $('#left').click(function () {
+          $('.box-2').animate({ left: '-100px' },)
+        });
+        $('#zoom').click(function () {
+          // transform要在css裡使用jQuary不能用
+          $('.box-2 p').animate({
+            width: "200px",
+            height: '200px',
+            fonsize: "30px",
+
+
+
+          },)
+        });
+        /* 雙向縮放 */
+        $('#b-toggle').click(function () {
+          // transform要在css裡使用jQuary不能用
+          $('.box-2 p').animate({
+            width: "toggle",
+            height: 'toggle',
+            fonsize: "toggle",
+          }, 3000)
+        });
+        // 變色(寫法一)
+        //   $('#color').click(function () {
+
+        //     $('.box-2 p').css("background-color", "black");
+        //   });
+
+        // })
+        // 寫法二
+        $('#color').click(function () {
+
+          $('.box-2 p').css({
+            "background-color": "red",
+            "transform": "scale(1.5)",
+
+
+          });
+        });
+
+      })
+    </script>
+  </body>
+
+</html>
