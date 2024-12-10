@@ -1,39 +1,19 @@
-* {
- margin: 0;
- padding:0 ;
-}
+.cssAnima {
+  width: 200px;
+  height: 200px;
+  /* 兩個以上使用 inline-block;*/
+  display: block;
+  border: 1px solid red;
+  /* 超出範圍隱藏 */
+  overflow: hidden;
 
-.wrap{
-  width: 1200px;
-  margin: 50px auto;
-}
-
-.container {
-display: flex;
-/* 自動換行 */
-  flex-wrap: wrap;
-  border-radius: 10px;
-  text-align: center;
-  justify-content: space-between;
-}
-
-.item{
-  width: 550px;
-  border: 1px solid;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 10px;
 
 }
-.item h3{
-  background-color: #eee;
-  border-radius: 10px;
-  border-bottom: 1px solid  #eee;
-  padding: 10px 0;
 
+.cssAnima img {
+  width: 100%;
+  transition: all .3s linear;
 }
-.content{
-display: flex;
-justify-content: space-between;
-padding: 10px 20px;
-}
+.cssAnima img:hover {
+  transform: scale(1.5);
+} 
