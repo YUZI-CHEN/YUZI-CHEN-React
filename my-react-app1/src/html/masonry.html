@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #wrap{
+        margin: auto;
+
+      }
+      
+      .box {
+        width: 300px;
+        margin: 2px;
+        background-color: brown;
+        
+      }
+
+      .box img {
+        width: 100%;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="box">
+        <img src="./images/image-1.jpg" alt="">
+        <p>222</p>
+      </div>
+      <div class="box">
+        <img src="./images/image-2.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/05.jpg" alt="">
+
+      </div>
+      <div class="box">
+        <img src="./images/image-3.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/image-4.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/image-1.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/image-2.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/05.jpg" alt="">
+
+      </div>
+      <div class="box">
+        <img src="./images/image-3.jpg" alt="">
+      </div>
+      <div class="box">
+        <img src="./images/image-6.jpg" alt="">
+      </div>
+  
+  
+
+
+    </div>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <!-- 載入圖片再載入主程式 -->
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/masonry.pkgd.min.js"></script>
+
+    <script>
+      $(function(){
+        $('#wrap').imagesLoaded(function(){
+          $('#wrap').masonry({
+            //左右留白，頁面置中
+            // 必須搭配css(margin:auto)
+            isFitWidth:true
+          });
+        })
+      })
+    </script>
+  </body>
+
+</html>
