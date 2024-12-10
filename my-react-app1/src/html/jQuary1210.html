@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      .cssAnima {
+        width: 200px;
+        height: 200px;
+        /* 兩個以上使用 inline-block;*/
+        display: block;
+        border: 1px solid red;
+        /* 超出範圍隱藏 */
+        overflow: hidden;
+
+
+      }
+
+      .cssAnima img {
+        width: 100%;
+        transition: all .3s linear;
+      }
+
+      .cssAnima img:hover {
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>動態新增刪除類別</h2>
+      <ul>
+        <li>新增類別=>addClass()</li>
+        <li>移除類別=>removeClass()</li>
+      </ul>
+      <hr>
+      <a href="#" class="cssAnima">
+        <img src="./images/02.jpg" alt="">
+      </a>
+    </div>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script>
+      $(function () {
+        $('.cssAnima').hover(function () {
+          $(this).addClass('imgScale');
+        }, function () {
+          $(this).removeClass('imgScale');
+        });
+      })
+    </script>
+  </body>
+
+</html>
