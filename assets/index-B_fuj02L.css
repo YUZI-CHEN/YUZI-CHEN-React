@@ -1,0 +1,1 @@
+body{background-color:#c3e6ff}.cssAnima{width:200px;height:200px;display:block;border:1px solid red;overflow:hidden}.cssAnima img{width:100%;transition:all .3s linear}.cssAnima img:hover{transform:scale(1.5)}
