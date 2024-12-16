@@ -17,20 +17,38 @@ export default function App() {
     //新增html=>append()
     // 取得子元素=>children()
     /* has=>去檢查這個超連結有沒有.tppShow這個部分*/
-    $('a:has(.tppShow)').mouseover(function (e) {
+
+
+
+
+    $('a:has(.tppShow)').on('mouseover',function (e) {
       $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>');
       $('#ttpPanel').css({
         top: (e.pageY + 10) + 'px',
-        left: (e.pageX + 10) + 'px'
+        left: (e.pageX + 10) + 'px',
       }).fadeIn('fast');
-    }).mouseout(function (e) {
+    }).on('mouseout',function () {
       $('#ttpPanel').remove();
-    }).mousemove(function (e) {
+    }).on('mousemove',function (e) {
       $('#ttpPanel').css({
         top: (e.pageY + 10) + 'px',
         left: (e.pageX + 10) + 'px'
       });
     })
+    // $('a:has(.tppShow)').mouseover(function (e) {
+    //   $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>');
+    //   $('#ttpPanel').css({
+    //     top: (e.pageY + 10) + 'px',
+    //     left: (e.pageX + 10) + 'px'
+    //   }).fadeIn('fast');
+    // }).mouseout(function (e) {
+    //   $('#ttpPanel').remove();
+    // }).mousemove(function (e) {
+    //   $('#ttpPanel').css({
+    //     top: (e.pageY + 10) + 'px',
+    //     left: (e.pageX + 10) + 'px'
+    //   });
+    // })
 
 
   }, [])
@@ -44,7 +62,7 @@ export default function App() {
         </a>
         adipisicing elit. Facere explicabo, eos officia accusamus qui porro excepturi quam sit accusantium, esse, officiis ut repudiandae. Cupiditate iusto recusandae, dolor iure animi rerum blanditiis nemo? Maxime praesentium beatae quae iure animi est mollitia distinctio tenetur alias, magni voluptate? Placeat temporibus ut repellat! Excepturi similique illo natus architecto rerum, enim veniam accusantium fugit necessitatibus assumenda porro ut id voluptates et, rem sit delectus corrupti atque dolores doloremque itaque dolor voluptas! Ab exercitationem culpa nam, similique molestias dolores, itaque inventore facilis odit eos libero velit recusandae sapiente veniam accusamus, veritatis molestiae voluptas! Aliquid laboriosam aperiam fugiat sequi quo veritatis fuga error aliquam quis laborum. Aliquam totam minus dicta eum qui, quisquam ducimus adipisci dolorem? Suscipit optio assumenda minus corrupti ipsum illo nesciunt, distinctio, mollitia necessitatibus vel maiores, odio minima. Iste fugit adipisci nam impedit delectus iure, numquam voluptas id in officia pariatur eum unde maxime maiores. Tempore, nihil distinctio. Animi adipisci inventore sequi? Assumenda ipsum incidunt quia, optio veniam nihil obcaecati tempora sint facilis amet fugiat nam enim blanditiis, recusandae temporibus molestias, tempore aperiam repudiandae atque est quis earum. Error doloribus consequuntur, dicta numquam autem ducimus inventore labore voluptatibus commodi nisi nihil molestiae at placeat saepe ab quis beatae dolore nemo voluptate odio? Est quis aliquid veniam excepturi molestiae corporis dicta blanditiis repellat officiis temporibus perferendis distinctio eum voluptas voluptatem quia nulla sed, provident numquam inventore! Ex iusto molestiae aliquid esse repellendus? Optio delectus id tenetur nam deserunt consequuntur neque aperiam error fuga voluptas adipisci laboriosam corrupti facilis sint doloremque deleniti distinctio tempore, suscipit eligendi accusantium a? Molestiae explicabo, ipsa dignissimos harum et obcaecati consequuntur odio sequi deserunt libero excepturi, totam ipsam dolorem temporibus deleniti eius fugit voluptate quas modi similique recusandae minus? Nisi, ipsum ad alias aliquid perspiciatis similique quos cumque. Pariatur, unde consectetur.</p>
 
-      <span>
+      <span className='ttpShow'>
         <img src="./images/unity.jpg" alt="" style={{ width: '100px' }
         } />
       </span>
