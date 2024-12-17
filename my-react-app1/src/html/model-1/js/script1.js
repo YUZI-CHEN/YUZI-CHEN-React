@@ -1,3 +1,4 @@
+
 $(function () {
 	var mdwBtn = $('.modalBtn');    // 取得開啟彈出視窗按鈕
 	var overlayOpacity = 0.7;		// 背景透明度變數
