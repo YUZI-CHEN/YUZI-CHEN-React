@@ -1,19 +1,25 @@
-.cssAnima {
+a {
+  text-decoration: underline;
+  color: red;
+
+}
+
+a:hover {
+  text-decoration: none;
+
+}
+
+.ttpShow {
+  display: none;
+}
+
+#ttpPanel {
+  padding: 15px;
   width: 200px;
-  height: 200px;
-  /* 兩個以上使用 inline-block;*/
-  display: block;
-  border: 1px solid red;
-  /* 超出範圍隱藏 */
-  overflow: hidden;
-
-
+  text-align: left;
+  border: 3px solid #ccc;
+  position: absolute;
+  z-index: 99;
+  background-color: #fff;
+  display: none;
 }
-
-.cssAnima img {
-  width: 100%;
-  transition: all .3s linear;
-}
-.cssAnima img:hover {
-  transform: scale(1.5);
-} 

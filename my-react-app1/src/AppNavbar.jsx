@@ -3,10 +3,13 @@ import Navbar from "./component/Navbar";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import New from "./pages/New";
+import User from "./pages/User";
+import Login from "./pages/login";
 
 
 
-export default function App() {
+
+export default function AppNavbar() {
   return (
 
 
@@ -24,6 +27,8 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/new" element={<New />}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/user" element={<User />}> </Route>
       </Routes>
 
 

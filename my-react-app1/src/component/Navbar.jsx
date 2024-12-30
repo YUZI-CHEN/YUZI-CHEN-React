@@ -15,6 +15,12 @@ export default function Navbar() {
         <li>
           <Link to='/new'>最新消息</Link>
         </li>
+        <li>
+          <Link to='/login'>login</Link>
+        </li>
+        <li>
+          <Link to='/user'>使用者資料</Link>
+        </li>
       </ul>
     </div>
 
