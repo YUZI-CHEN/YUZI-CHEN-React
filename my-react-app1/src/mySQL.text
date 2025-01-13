@@ -24,4 +24,12 @@ WHERE MONTH(cBirthday)=12
 /*取生日的資料*/ SELECT cid AS '座號',cName AS '姓名', cBirthday AS '生日',YEAR(cBirthday) AS'年', MONTH(cBirthday) AS '月',DAY(cBirthday) AS'日' FROM students;
 
 
-/*BMI=體重(公斤)/身高2(公尺2)*/ /*ROUND(值,小數位)=>取出小數第N位*/ /*SELECT *, ROUND(cWeight/((cHeight/100)*(cHeight/100)),2) AS BMI*/ /*POW(值,N)=>次方值*/ SELECT *, ROUND(cWeight/(POW(cHeight/100,2)),2) AS BMI FROM students /*排續 (沒寫值遞增)*/ ORDER BY cBirthday DESC;
+/*BMI=體重(公斤)/身高2(公尺2)*/
+ /*ROUND(值,小數位)=>取出小數第N位*/ 
+ /*SELECT *, ROUND(cWeight/((cHeight/100)*(cHeight/100)),2) AS BMI*/ 
+ /*POW(值,N)=>次方值*/ 
+ SELECT *, ROUND(cWeight/(POW(cHeight/100,2)),2) AS BMI FROM students 
+ /*排續遞增也可以加上遞減(相反亦同)*/ 
+ ORDER BY 欄位名稱1 ASC,欄位名稱2 DESC,
+ /*排續 遞減*/ 
+ ORDER BY cBirthday DESC;
