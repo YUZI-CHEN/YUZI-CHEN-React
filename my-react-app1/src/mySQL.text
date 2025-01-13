@@ -1,0 +1,27 @@
+/*取得學生全部資料*/
+/*米字代表全部欄位的資料*/
+SELECT * FROM students;
+
+/*取得男同學的資料*/
+
+SELECT *  
+FROM students
+WHERE cSex='M';
+
+/*取得男同學中1987出生的資料*/
+
+SELECT *  
+FROM students
+WHERE cSex='M' AND(cBirthday>='1987/01/01' and cBirthday<='1987/12/31');
+
+/*取12月的資料*/
+/*用,隔開增加欄位*/
+SELECT  cid, cName, cSex, cBirthday, MONTH(cBirthday)
+FROM students
+WHERE MONTH(cBirthday)=12
+
+
+/*取生日的資料*/ SELECT cid AS '座號',cName AS '姓名', cBirthday AS '生日',YEAR(cBirthday) AS'年', MONTH(cBirthday) AS '月',DAY(cBirthday) AS'日' FROM students;
+
+
+/*BMI=體重(公斤)/身高2(公尺2)*/ /*ROUND(值,小數位)=>取出小數第N位*/ /*SELECT *, ROUND(cWeight/((cHeight/100)*(cHeight/100)),2) AS BMI*/ /*POW(值,N)=>次方值*/ SELECT *, ROUND(cWeight/(POW(cHeight/100,2)),2) AS BMI FROM students /*排續 (沒寫值遞增)*/ ORDER BY cBirthday DESC;

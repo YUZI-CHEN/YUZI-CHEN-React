@@ -15,7 +15,7 @@ export default function App() {
   // 頁數
   const currentPage = useRef(1);
 
-  
+
   // 建立非同步方法，取得遠端資料
   const getPhotos = async (page = 1, isNew = true) => {
     //避免執行中錯誤，可以改用try(...)catch(...)
@@ -57,47 +57,47 @@ export default function App() {
     }
   }
 
-// 建立圖片元件
-const Card = () => {
-  return (
-    jsonData.map((item, index) => {
-      return (
-        <div key={index}>
-          <img src={item.urls.regular} alt="" style={{ width: "400px", height: "350px", objectFit: 'cover' }}></img>
-        </div>
+  // 建立圖片元件
+  const Card = () => {
+    return (
+      jsonData.map((item, index) => {
+        return (
+          <div key={index}>
+            <img src={item.urls.regular} alt="" style={{ width: "400px", height: "350px", objectFit: 'cover' }}></img>
+          </div>
+        )
+      }
+
       )
-    }
-
     )
-  )
-}
-
-//建立搜尋列元件
-const SearchBox = ({ onSearchHandler, filterString }) => {
-  return (
-    <div style={{
-      textAlign: "center",
-      margin: "50px 0",
-    }}
-
-    >
-
-      <label htmlFor="filter">請輸入搜尋文字</label>
-      <input type="text" id="filter"
-        defaultValue={filterString}
-        onKeyDown={onSearchHandler}>
-      </input>
-    </div>
-  )
-}
-// 按下enter鍵時，更改filterString資料的函式
-const onSearchHandler = (e) => {
-  if (e.key === 'Enter') {
-    setFilterString(e.target.value);
   }
-}
-// 列表高度
-const listRef = useRef(null);
+
+  //建立搜尋列元件
+  const SearchBox = ({ onSearchHandler, filterString }) => {
+    return (
+      <div style={{
+        textAlign: "center",
+        margin: "50px 0",
+      }}
+
+      >
+
+        <label htmlFor="filter">請輸入搜尋文字</label>
+        <input type="text" id="filter"
+          defaultValue={filterString}
+          onKeyDown={onSearchHandler}>
+        </input>
+      </div>
+    )
+  }
+  // 按下enter鍵時，更改filterString資料的函式
+  const onSearchHandler = (e) => {
+    if (e.key === 'Enter') {
+      setFilterString(e.target.value);
+    }
+  }
+  // 列表高度
+  const listRef = useRef(null);
   // 避免重複
   useEffect(() => {
 
@@ -132,9 +132,9 @@ const listRef = useRef(null);
 
 
 
-  
 
-  
+
+
   // 渲染時使用jsx語法，諾要使用js語法，前後加{}
   return (
     <>
